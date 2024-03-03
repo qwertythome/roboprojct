@@ -6,14 +6,13 @@ fetch("http://localhost:3000/api/allproducts")
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     return response.json();
-  })
-  .then((res) => {
-    console.log("Відповідь:", res);
-    build(res.products);
-  });
+  }).then(res=>
+   build(res)
+  )
+
 
 function build(products) {
-  let html = "";
+  let html = ""
   for (let i = 0; i < products.length; i++) {
     html += `
       <div class="card">
